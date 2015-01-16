@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>SirAdmin &#8230; a GUI replacement for cyradm | mind the explanatory gap</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<!--[if lt IE 9]>
+	<script src="http://explanatorygap.net/wp-content/themes/twentythirteen/js/html5.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="mind the explanatory gap &raquo; Feed" href="http://explanatorygap.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="mind the explanatory gap &raquo; Comments Feed" href="http://explanatorygap.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="mind the explanatory gap &raquo; SirAdmin &#8230; a GUI replacement for cyradm Comments Feed" href="http://explanatorygap.net/2006/05/13/siradmin-a-gui-replacement-for-cyradm/feed/" />
+<link rel='stylesheet' id='wpcf-css'  href='http://explanatorygap.net/wp-content/plugins/wp-contact-form/wpcf.css?ver=20110218' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-fonts-css'  href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/fonts/genericons.css?ver=2.09' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-style-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/style.css?ver=2013-07-18' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.5'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://explanatorygap.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://explanatorygap.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='How OS X launches Applications&#8230;' href='http://explanatorygap.net/2006/04/03/how-os-x-launches-applications/' />
+<link rel='next' title='Moving the hibernate image file on a MacBookPro&#8230;' href='http://explanatorygap.net/2006/06/08/moving-the-hibernate-image-file-on-a-macbookpro/' />
+<meta name="generator" content="WordPress 3.6.1 - really-static 0.5" />
+<link rel='canonical' href='http://explanatorygap.net/2006/05/13/siradmin-a-gui-replacement-for-cyradm/' />
+<link rel="stylesheet" href="http://explanatorygap.net/wp-content/plugins/source-code-syntax-highlighting-plugin-for-wordpress/geshi.css"  type="text/css" />	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(http://explanatorygap.net/wp-content/themes/twentythirteen/images/headers/star.png) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+		</style>
+	<!-- Google Analytics Tracking by Google Analyticator 6.4.5: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-719433-1']);
+        _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google 
+        
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body class="single single-post postid-92 single-format-standard single-author">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="http://explanatorygap.net/wp-content/plugins/really-static/static/" title="mind the explanatory gap" rel="home">
+				<h1 class="site-title">mind the explanatory gap</h1>
+				<h2 class="site-description">many a slip &#039;twixt mind and lip&#8230;</h2>
+			</a>
+
+			<div id="navbar" class="navbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+					<h3 class="menu-toggle">Menu</h3>
+					<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
+					<div class="nav-menu"><ul><li class="page_item page-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/about/">About/Contact</a></li><li class="page_item page-item-278"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/os-x-puppet-pkgs/">OS X Puppet pkgs</a></li></ul></div>
+					<form role="search" method="get" class="search-form" action="http://explanatorygap.net/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>				</nav><!-- #site-navigation -->
+			</div><!-- #navbar -->
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+						
+				
+<article id="post-92" class="post-92 post type-post status-publish format-standard hentry category-software-and-scripts">
+	<header class="entry-header">
+		
+				<h1 class="entry-title">SirAdmin &#8230; a GUI replacement for cyradm</h1>
+		
+		<div class="entry-meta">
+			<span class="date"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/" title="Permalink to SirAdmin &#8230; a GUI replacement for cyradm" rel="bookmark"><time class="entry-date" datetime="2006-05-13T01:44:34+00:00">May 13, 2006</time></a></span><span class="categories-links"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/software-and-scripts/" title="View all posts in software and scripts" rel="category tag">software and scripts</a></span><span class="author vcard"><a class="url fn n" href="http://explanatorygap.net/wp-content/plugins/really-static/static/author/nigelkersten/" title="View all posts by nigel kersten" rel="author">nigel kersten</a></span>					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Moved to:</p>
+<p><a href="https://sites.google.com/a/explanatorygap.net/siradmin/">https://sites.google.com/a/explanatorygap.net/siradmin/</a></p>
+<p> </p>
+<p><strong>Edit:</strong> Version <span style="font-weight: bold">0.86b2</span> now available. (<span style="font-style: italic">22/03/2007</span>)</p>
+<p>I initially wrote SirAdmin as a diagnostic tool, so that when users reported problems with certain mailboxes, my IT support staff who were not comfortable with the command line interface of <em>cyradm</em> could assign themselves an ACL to view such mailboxes in their own email client in order to quickly diagnose whether the reported problem was server-side or client-side.</p>
+<p>However, it quickly became apparent that the usefuleness of this app extended beyond that, in that it allows non-admin users to share mailboxes with one another.</p>
+<p>If you&#8217;re not familiar with cyradm, it is a command line tool that ships with the Cyrus IMAP server. You can see the man page for it <a href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man1/cyradm.1.html">here at developer.apple.com</a>, and O&#8217;Reilly have <a href="http://www.oreilly.com/catalog/mimap/chapter/ch09.html">published Chapter 9: Cyrus System Administration</a> for free from their book <em>Managing IMAP</em>.</p>
+<p>So my app SirAdmin is essentially a GUI replacement for cyradm, in that it allows you to locally <em>or remotely</em> administer your Cyrus IMAP server.  I&#8217;ve tested it against the Cyrus server from Mac OS X Server 10.3 and 10.4, as well as Cyrus running on RedHat. It isn&#8217;t merely a wrapper around the cyradm code by the way. All the bugs are my own&#8230; :)</p>
+<p><strong>It does require OS X 10.4 on the <em>client</em>, where you are running the application</strong>, although you can talk to 10.3 IMAP servers</p>
+<p>It allows you to create, rename, delete and reconstruct mailboxes, and also allows you to set Access Control Lists for IMAP mailboxes. This is perhaps the most useful function, in that as an admin you can create globally shared mailboxes, or as a user you can choose to share out parts of your IMAP mailbox hierarchy with other users. It also gives you an easy interface to be able to configure &#8220;plus addressing&#8221;, where you can send emails to <em>postuser+aSharedMailbox@your.mail.doman</em> and have them be delivered directly to a particular mailbox, rather than to the inbox of a particular user.</p>
+<p>Here are some screenshots to illustrate what you can do:<br />
+<img src="/siradmin/SirAdmin.png" alt="" /></p>
+<p><img src="/siradmin/createACLScreenshot.png" alt="" /><br />
+<img src="/siradmin/EditMetadata.png" alt="" /></p>
+<p><img src="/siradmin/globalSharedFolder.png" alt="" /></p>
+<p>It&#8217;s still a  work in development, the obviously missing features are:</p>
+<ul>
+<li>Kerberos support</li>
+<li>The ability to specify particular mail partitions for particular mailboxes</li>
+<li>Untested behind a SOCKS proxy (would love feedback on this&#8230;)</li>
+<li>Mac Help for SirAdmin isn&#8217;t finished</li>
+<li>I&#8217;m also working on more diagnostic info, like number of messages in a mailbox, last message received, view message excerpts, etc.</li>
+</ul>
+<p>but it currently does some nifty stuff like:</p>
+<ul>
+<li>Keychain Support.</li>
+<li>SSL support.</li>
+<li>CRAM-MD5 support, with an attempted fallback to plain-text</li>
+<li>Create, Delete, Rename, Reconstruct Mailboxes.</li>
+<li>Create, Delete Access Control Lists for Maiboxes.</li>
+<li>Auto-complete usernames for ACLs based upon global mailbox listing</li>
+<li>Auto-complete usernames by searching your configured Directory Access nodes, with optional min/max uid filtering</li>
+<li>View Quotas, Quota Root and Quota Used.</li>
+<li>View and Edit Mailbox Comments, Squat Indexing, and Auto-Expiry age for messages</li>
+<li>View Mailbox Last Updated date, size and partition</li>
+</ul>
+<p>Anyway, if you&#8217;re interested in grabbing a copy, <a href="/sw/SirAdmin.app.zip">you can get version 0.86b2 here.</a><br />
+I&#8217;d love feedback on it, particular bug reports or suggestions for further utility. You can either email me or leave comments here.</p>
+<p><strong>Edit:</strong> I&#8217;m particularly keen on suggestions for the docs. Some comments below have illustrated that I need to explain Cyrus ACLs better. Thanks for that.</p>
+<p>Thanks go out to:</p>
+<ul>
+<li>Mark Daniel for designing the icon</li>
+<li>Dustin Voss for his most excellent <a href="http://www.cocoadev.com/index.pl?AsyncSocket">AsyncSocket class</a></li>
+<li><a href="http://homepage.mac.com/agerson/">Adam Gerson</a> for his useful <a href="http://homepage.mac.com/agerson/examples/keychain/">AGKeychain class</a></li>
+<li><a href="http://www.dribin.org/dave/">Dave Dribin</a> for his <a href="http://www.cocoadev.com/index.pl?BaseSixtyFour">Base64 encoding/decoding categories</a></li>
+</ul>
+			</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post -->
+					<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+
+			<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/04/03/how-os-x-launches-applications/" rel="prev"><span class="meta-nav">&larr;</span> How OS X launches Applications&#8230;</a>			<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/06/08/moving-the-hibernate-image-file-on-a-macbookpro/" rel="next">Moving the hibernate image file on a MacBookPro&#8230; <span class="meta-nav">&rarr;</span></a>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+					
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			17 thoughts on &ldquo;<span>SirAdmin &#8230; a GUI replacement for cyradm</span>&rdquo;		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-18" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.celiamania.com/wordpress/?p=84' rel='external nofollow' class='url'>CeliaMania &raquo; Make your SpamAssassin smarter</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-19" class="trackback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://notreserveur.org/weblog/admin/MacOSX/?permalink=SirAdminaGUIreplacementforcy.html' rel='external nofollow' class='url'>Weblog de l'administrateur</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-1326" class="comment even thread-even depth-1">
+			<article id="div-comment-1326" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/8707faba6b1344c49a9ec64da798cf48?s=74&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://www.nqabile.co.za' rel='external nofollow' class='url'>Kanthan Pillay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1326">
+							<time datetime="2007-05-22T03:17:01+00:00">
+								May 22, 2007 at 3:17 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This is great. All I wanted to do was to make the SpamAssassin Ham and Spam account inboxes world writeable so that any of us could move messages there from our own inboxes as needed.  I have not anywhere been able to locate how to set permissions on a mailbox for &#8220;anyone&#8221; using cyradm from the command line. I still don&#8217;t know, but you have solved that problem for me most elegantly. Many thanks.</p>
+<p>-Kanthan.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1341" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1341" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/7a17c935b554c9f972ffe416e1a01ac6?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">Ben</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1341">
+							<time datetime="2007-07-02T04:24:57+00:00">
+								July 2, 2007 at 4:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>SirAdmin is a great product.</p>
+<p>The only improvement for me would be the ability to set quotas.</p>
+<p>Ben</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1489" class="comment even thread-even depth-1">
+			<article id="div-comment-1489" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/4b06c6a0d46481dcc26f46d621531cb8?s=74&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://thefragens.com/blog/' rel='external nofollow' class='url'>Andy Fragen</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1489">
+							<time datetime="2008-02-07T11:24:19+00:00">
+								February 7, 2008 at 11:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I can&#8217;t seem to delete a mailbox in Leopard Server 10.5.1. I can log in and see all the mailboxes. But I get a permission denied error. This using Version 0.86b2.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1493" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1493" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/56d34306b5488bf608345c94136ef5a7?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://www.tempel.org' rel='external nofollow' class='url'>Thomas Tempelmann</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1493">
+							<time datetime="2008-02-16T19:45:14+00:00">
+								February 16, 2008 at 7:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for this tool! I was trying hard to move a mailbox to another user on my Tiger Server and could not figure out that while the &#8220;rename&#8221; command in cyradm did work, the new user could not access the folders. Now I see that it also needs to adjust the ACLs. Had no idea. Hurray for GUI tools! (saved me from browsing the darn docs for hours, probably) :)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1494" class="comment byuser comment-author-nigelkersten bypostauthor even thread-even depth-1">
+			<article id="div-comment-1494" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/7cf661429a59293f6633f0b671ea969d?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://explanatorygap.net/wp-content/plugins/really-static/static/' rel='external nofollow' class='url'>nigel kersten</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1494">
+							<time datetime="2008-02-17T01:09:17+00:00">
+								February 17, 2008 at 1:09 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Glad to hear Thomas. :)</p>
+<p>Maybe I should sit back down and work on this again and add quota support and refactor it so it&#8217;s not quite so hideous inside&#8230;.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1501" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1501" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/1cdfe0b335a176aa1f8931f85fbd8671?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">Jeff J.</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1501">
+							<time datetime="2008-03-16T03:16:46+00:00">
+								March 16, 2008 at 3:16 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Two things, SirAdmin 0.86b2 doesn&#8217;t remember the password in the keychain even with remember in keychain checked.  Second, creating a Cyrus admin, then logging into the server, showing mailboxes, clicking on delete and confirming does not delete the mailbox.  Had to go into the Terminal to accomplish this which worked fine.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1519" class="comment even thread-even depth-1">
+			<article id="div-comment-1519" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/6490b8306b3aeaf0f6d922cf024abe6f?s=74&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">Frohike</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1519">
+							<time datetime="2008-04-14T06:25:45+00:00">
+								April 14, 2008 at 6:25 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Fantastic tool!! Just one thing that&#8217;s a little missing from the documentation though… what to do in Mail to see the shared mailboxes. For some it&#8217;s not obvious.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1555" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1555" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/e82fdb21a69060afa6e9ff8c11707c9e?s=74&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">Michael</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1555">
+							<time datetime="2008-09-03T04:55:36+00:00">
+								September 3, 2008 at 4:55 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi there, </p>
+<p>I&#8217;m trying to authenticate with Cyrus over an SSH tunnel, and in the connection dialog I&#8217;m using the values </p>
+<p>localhost<br />
+cyrus<br />
+mypassword</p>
+<p>yet in the authentication log on the server-side, I&#8217;m seeing that the username is being presented as &#8216;cyrus@com&#8217;. Could you advise on how I can avoid this behaviour please? Otherwise, cracking product!</p>
+<p>Best wishes, </p>
+<p>Michael</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1564" class="comment even thread-even depth-1">
+			<article id="div-comment-1564" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/392d75c8530167431ec65faf67b3ff8c?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://www.krcs.co.uk' rel='external nofollow' class='url'>Antonio Rocco</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1564">
+							<time datetime="2008-09-15T04:47:51+00:00">
+								September 15, 2008 at 4:47 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Nothing much to add other than thank you for producing such a great application. There is lots I can suggest but I think you will probably have them all covered in the next version? If there is to be a next version &#8211; hopefully?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1565" class="comment byuser comment-author-nigelkersten bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1565" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/7cf661429a59293f6633f0b671ea969d?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://explanatorygap.net/wp-content/plugins/really-static/static/' rel='external nofollow' class='url'>nigel kersten</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1565">
+							<time datetime="2008-09-15T09:37:36+00:00">
+								September 15, 2008 at 9:37 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>So I really haven&#8217;t even looked at this source code since I left the job that made it necessary to write it :)</p>
+<p>I&#8217;d love it if someone ran with the idea and produced something better&#8230; :)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1572" class="comment even thread-even depth-1">
+			<article id="div-comment-1572" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/e8ce49bf7c20c7c543179f70f1fea098?s=74&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">ds</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1572">
+							<time datetime="2008-09-24T01:08:27+00:00">
+								September 24, 2008 at 1:08 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I haven&#8217;t been able to get SirAdmin to with in Leopard Server, 10.5.5 &#8211; has anyone succeeded here?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1575" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1575" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/d975ab6867acc7f825fdd6023e1bf4fb?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">don't panic</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1575">
+							<time datetime="2008-09-28T16:51:39+00:00">
+								September 28, 2008 at 4:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>just reinstalled our server completely, including the update from 10.5.4 to 10.5.5 and once we edited the /etc/imapd.conf all works as before&#8230; </p>
+<p>so far no problems with 10.5.5</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1577" class="comment even thread-even depth-1">
+			<article id="div-comment-1577" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/d975ab6867acc7f825fdd6023e1bf4fb?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn">don't panic</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1577">
+							<time datetime="2008-09-28T16:53:00+00:00">
+								September 28, 2008 at 4:53 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>10.5.5 and siradmin works fine for us&#8230; did you check your /etc/imapd.conf file?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1588" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1588" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/92a5fe09de575df5d4ced3be01faa18d?s=74&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D74&amp;r=G' class='avatar avatar-74 photo' height='74' width='74' />						<b class="fn"><a href='http://www.domenici.com' rel='external nofollow' class='url'>Matt D</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2006/05/13/siradmin-a-gui-replacement-for-cyradm/comment-page-1/#comment-1588">
+							<time datetime="2008-10-06T17:25:41+00:00">
+								October 6, 2008 at 5:25 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Don&#8217;t forget, many of these random shared mailboxes are created from config problems.  Use SirAdmin to create an ACL for your cyrus admin user that has all rights to the shared mailbox, then delete it &#8212; the permission denied error will go away.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-2453" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://twintails.com/blog/2009/10/29/apple-what-went-wrong/' rel='external nofollow' class='url'>Apple! What went wrong? | Twintails</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+				<p class="no-comments">Comments are closed.</p>
+		
+	
+									
+</div><!-- #comments -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+				<div id="secondary" class="sidebar-container" role="complementary">
+		<div class="widget-area">
+			<aside id="pages-2" class="widget widget_pages"><h3 class="widget-title">Pages</h3>		<ul>
+			<li class="page_item page-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/about/">About/Contact</a></li>
+<li class="page_item page-item-278"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/os-x-puppet-pkgs/">OS X Puppet pkgs</a></li>
+		</ul>
+		</aside><aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="http://explanatorygap.net/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form></aside><aside id="tweetbox" class="widget tweetbox_widget"><h3 class="widget-title">Latest Tweets</h3><script type="text/javascript" src="http://explanatorygap.net/wp-content/plugins/tweetbox/tweetbox.js"></script><script>getTweets('nigelkersten', 3, '')</script><div id="tweetboxtweets">Fetching latest tweets...</div></aside><aside id="categories-1" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-5"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/nix/" title="View all posts filed under *nix">*nix</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/macosx/" title="View all posts filed under macosx">macosx</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/macosxserver/" title="View all posts filed under macosxserver">macosxserver</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/puppet/" title="View all posts filed under puppet">puppet</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/python/" title="View all posts filed under python">python</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/ramblings/" title="View all posts filed under ramblings">ramblings</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/snippets/" title="Snippets">Snippets</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/software-and-scripts/" title="View all posts filed under software and scripts">software and scripts</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+		</ul>
+</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>			<ul>
+						<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/wp-login.php">Log in</a></li>
+			<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</aside><aside id="linkcat-10" class="widget widget_links"><h3 class="widget-title">Mac Dev Blogs</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://ridiculousfish.com/blog/">Ridiculous Fish</a></li>
+<li><a href="http://www.theocacao.com/" title="Scott Stevenson&#8217;s blog">theocacao.com</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-8" class="widget widget_links"><h3 class="widget-title">Mac Tech Blogs</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bynkii.com/" title="John C. Welch&#8217;s blog&#8230; the reason God invented the middle finger&#8230;">bynkii.com</a></li>
+<li><a href="http://arstechnica.com/staff/fatbits.ars" title="John Siracusa&#8217;s Journal">fatbits</a></li>
+<li><a href="http://iamleeg.blogspot.com/" title="Graham Lee&#8217;s blog&#8230; lots of Darwin and Openstep.">i am leeg</a></li>
+<li><a href="http://managingosx.wordpress.com/" title="Greg Neagle&#8217;s Managing OS X blog">managing os x</a></li>
+<li><a href="http://northstarlabs.net" title="Jeff McCune&#8217;s sysadmin blog">northstarlabs.net</a></li>
+<li><a href="http://www.radiotope.com/writing/" title="Edward Marczak&#8217;s blog&#8230; the oneness of tech..">tech zendo</a></li>
+<li><a href="http://www.dreness.com/blog/" title="Andre&#8217;s Mac geek blog&#8230;">the bits</a></li>
+<li><a href="http://yourmacguy.wordpress.com/" title="Peter Bukowinski&#8217;s blog">Your Mac Guy</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-9" class="widget widget_links"><h3 class="widget-title">Mac Technical Sites</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.afp548.com" title="We put the M in RTFM&#8230;">AFP548.com</a></li>
+<li><a href="http://www.macenterprise.org" title="The MacEnterprise project is a community of IT professionals sharing information and solutions to support Macs in an enterprise.">MacEnterprise.org</a></li>
+<li><a href="http://xsanity.com/">xsanity</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-12" class="widget widget_links"><h3 class="widget-title">Social</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://yumamino.com/" title="Tane Potaka&#8217;s blog">Yumamino</a></li>
+
+	</ul>
+</aside>
+		</div><!-- .widget-area -->
+	</div><!-- #secondary -->
+
+			<div class="site-info">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery.masonry.min.js?ver=2.1.05'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-content/themes/twentythirteen/js/functions.js?ver=2013-07-18'></script>
+</body>
+</html>
+<!-- Dynamic Page Served (once) in 0.607 seconds -->
+<!-- Cached page served by WP-Cache -->

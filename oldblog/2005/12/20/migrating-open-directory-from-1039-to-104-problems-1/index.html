@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Migrating Open Directory from 10.3.9 to 10.4 &#8211; Problems #1 | mind the explanatory gap</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<!--[if lt IE 9]>
+	<script src="http://explanatorygap.net/wp-content/themes/twentythirteen/js/html5.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="mind the explanatory gap &raquo; Feed" href="http://explanatorygap.net/wp-content/plugins/really-static/static/feed/" />
+
+<link rel="alternate" type="application/rss+xml" title="mind the explanatory gap &raquo; Migrating Open Directory from 10.3.9 to 10.4 &#8211; Problems #1 Comments Feed" href="http://explanatorygap.net/wp-content/plugins/really-static/static/2005/12/20/migrating-open-directory-from-1039-to-104-problems-1/feed/" />
+<link rel='stylesheet' id='wpcf-css'  href='http://explanatorygap.net/wp-content/plugins/wp-contact-form/wpcf.css?ver=20110218' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-fonts-css'  href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/fonts/genericons.css?ver=2.09' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-style-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/style.css?ver=2013-07-18' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='http://explanatorygap.net/wp-content/themes/twentythirteen/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.7.3'></script>
+<link rel='prev' title='A Mac OS X Startup Item for Sympa' href='http://explanatorygap.net/wp-content/plugins/really-static/static/2005/11/23/a-mac-os-x-startup-item-for-sympa/' />
+<link rel='next' title='kadmin.local: Unknown credential cache type&#8230;' href='http://explanatorygap.net/wp-content/plugins/really-static/static/2005/12/20/kadminlocal-unknown-credential-cache-type-while-opening-default-credentials-cache/' />
+<meta name="generator" content="WordPress 3.9.1 - really-static 0.5" />
+<link rel='canonical' href='http://explanatorygap.net/wp-content/plugins/really-static/static/2005/12/20/migrating-open-directory-from-1039-to-104-problems-1/' />
+<link rel="stylesheet" href="http://explanatorygap.net/wp-content/plugins/source-code-syntax-highlighting-plugin-for-wordpress/geshi.css"  type="text/css" />	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(http://explanatorygap.net/wp-content/themes/twentythirteen/images/headers/star.png) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+		</style>
+	<!-- Google Analytics Tracking by Google Analyticator 6.4.7.3: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+                var analyticsFileTypes = [''];
+                            var analyticsSnippet = 'enabled';
+                var analyticsEventTracking = 'enabled';
+            </script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+  
+	_gaq.push(['_setAccount', 'UA-719433-1']);
+    _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body class="single single-post postid-98 single-format-standard single-author">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="http://explanatorygap.net/wp-content/plugins/really-static/static/" title="mind the explanatory gap" rel="home">
+				<h1 class="site-title">mind the explanatory gap</h1>
+				<h2 class="site-description">many a slip &#039;twixt mind and lip&#8230;</h2>
+			</a>
+
+			<div id="navbar" class="navbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+					<h3 class="menu-toggle">Menu</h3>
+					<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
+					<div class="nav-menu"><ul><li class="page_item page-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/about/">About/Contact</a></li><li class="page_item page-item-278"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/os-x-puppet-pkgs/">OS X Puppet pkgs</a></li></ul></div>
+					<form role="search" method="get" class="search-form" action="http://explanatorygap.net/wp-content/plugins/really-static/static/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>				</nav><!-- #site-navigation -->
+			</div><!-- #navbar -->
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+						
+				
+<article id="post-98" class="post-98 post type-post status-publish format-standard hentry category-macosxserver">
+	<header class="entry-header">
+		
+				<h1 class="entry-title">Migrating Open Directory from 10.3.9 to 10.4 &#8211; Problems #1</h1>
+		
+		<div class="entry-meta">
+			<span class="date"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2005/12/20/migrating-open-directory-from-1039-to-104-problems-1/" title="Permalink to Migrating Open Directory from 10.3.9 to 10.4 &#8211; Problems #1" rel="bookmark"><time class="entry-date" datetime="2005-12-20T20:43:01+00:00">December 20, 2005</time></a></span><span class="categories-links"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/macosxserver/" title="View all posts in macosxserver" rel="category tag">macosxserver</a></span><span class="author vcard"><a class="url fn n" href="http://explanatorygap.net/wp-content/plugins/really-static/static/author/nigelkersten/" title="View all posts by nigel kersten" rel="author">nigel kersten</a></span>					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Recently I finally bit the bullet and migrated my 10.3.9 Open Directory Master to 10.4.3, and ran into a couple of problems along the way&#8230;</p>
+<p>Although I&#8217;ve been hearing the odd report about a successful upgrade, I decided I&#8217;d follow something similar to <a href="http://www.afp548.com/article.php?story=20050615173039158">Andrina&#8217;s article on afp548.com</a> on how to dump LDAP, Password Server and Kerberos, and then re-import those to a clean 10.4 Open Directory Master.</p>
+<ol>
+<li>The first problem I ran into was Andrina&#8217;s suggestion to use <code>mkpassdb -mergeparent</code>. Doing things this way will generate a new RSA key for the entire Password Server database, which is problematic for my setup. I have way too many mobile users (we&#8217;ve been using mobile accounts since they were introduced in 10.3) who have an <code>original_authentication_authority</code> property in their local mobile user record in NetInfo.  If the RSA key were to change, I&#8217;m pretty sure these accounts would essentially be orphaned, and I just decided I couldn&#8217;t take that risk, so I instead used <code>mkpassdb -mergedb</code>, which will replace the entire Password Server db from the 10.3.9 backup, rather than merging it with the clean 10.4.3 database.
+</li>
+<li>Another really really annoying problem I ran into regarded the use of slapcat and slapadd to dump and import the LDAP database.  I have quite a few &#8216;email only&#8217; user accounts that do not have a homedirectory property set.  As I&#8217;ve created these via Workgrop Manager, these are of the type &#8216;posixAccount&#8217;, and the LDAP schema definition for posixAccount requires that all such accounts MUST have a home property. slapadd refused to import these users.
+<p>I had at least three options once I realised this was an issue. </p>
+<ol>
+<li>Reboot my existing 10.3.9 server, and use Workgroup Manager to export all the user records, then import them to the 10.4.3 server, and then use the ldap tools to overwrite the authentication_authority records for those accounts. As they had already been created, the ldap tools should have had no problem overwriting properties.
+</li>
+<li>Use ldapmodify/ldapadd to add the accounts from the ldif dump, as they ignore the schema checking that slapadd does. I&#8217;d run into some issues with the PWS import, so I was having trouble authenticating to the LDAP directory via password, and I also ran into some issues with the Kerberos import, mainly to do with not having an ldap principal for the OD master so I couldn&#8217;t authenticate that way either.
+</li>
+<li>Modify the schema for posixAccount such that it no longer required a home attribute.  This seemed to be the path of least resistance, so I went this way. To do this, edit /etc/openldap/schemas/nis.schema, and change the posixAccount definition:<br />
+</p>
+<pre>
+objectclass ( 1.3.6.1.1.1.2.0 NAME 'posixAccount' SUP top AUXILIARY
+        DESC 'Abstraction of an account with POSIX attributes'
+       MUST ( cn $ uid $ uidNumber $ gidNumber $homeDirectory )
+        MAY ( userPassword $ loginShell $ gecos $ description ) )
+</pre>
+<p>to:</p>
+<pre>
+objectclass ( 1.3.6.1.1.1.2.0 NAME 'posixAccount' SUP top AUXILIARY
+        DESC 'Abstraction of an account with POSIX attributes'
+       MUST ( cn $ uid $ uidNumber $ gidNumber )
+        MAY ( userPassword $ loginShell $ gecos $ description ) )
+</pre>
+<p> Once I&#8217;d done this, slapadd happily added all my email-only users.
+</li>
+</ol>
+</li>
+<li>Kerberos. This caused me no end of pain.  I initially didn&#8217;t want to simply do mkpassdb -kerberize, as I wanted to keep all my existing host and service principals for all my other servers. This was me being kind of lazy, but I also wanted to keep the option to simply roll back to my 10.3.9 OD Master if the migration didn&#8217;t work out properly.
+<p>In the end, after struggling with a bunch of different things, particularly the new kinds of principals in 10.4, I just realised I was being stubborn, and created an entirely new Kerberos setup. Part of the reason I was being so stubborn was due to me forgetting just how nice <code>mkpassdb -kerberize</code> is in 10.4. It&#8217;s a couple of minutes at most to generate an entirely new Kerberos setup from PWS/LDAP, and then it&#8217;s simply a matter of running <code>sso_util</code> on the other servers, and restarting any services that use Kerberos. Definitely the path of least resistance&#8230;
+</li>
+</ol>
+			</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post -->
+					<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+
+			<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2005/11/23/a-mac-os-x-startup-item-for-sympa/" rel="prev"><span class="meta-nav">&larr;</span> A Mac OS X Startup Item for Sympa</a>			<a href="http://explanatorygap.net/wp-content/plugins/really-static/static/2005/12/20/kadminlocal-unknown-credential-cache-type-while-opening-default-credentials-cache/" rel="next">kadmin.local: Unknown credential cache type&#8230; <span class="meta-nav">&rarr;</span></a>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+					
+<div id="comments" class="comments-area">
+
+	
+									<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2005/12/20/migrating-open-directory-from-1039-to-104-problems-1/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://explanatorygap.net/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='98' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c1e1f94a7e" /></p><script type='text/javascript' src='http://explanatorygap.net/wp-content/plugins/akismet/_inc/form.js?ver=3.0.0'></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="66"/></p>					</form>
+							</div><!-- #respond -->
+			
+</div><!-- #comments -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+				<div id="secondary" class="sidebar-container" role="complementary">
+		<div class="widget-area">
+			<aside id="pages-2" class="widget widget_pages"><h3 class="widget-title">Pages</h3>		<ul>
+			<li class="page_item page-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/about/">About/Contact</a></li>
+<li class="page_item page-item-278"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/os-x-puppet-pkgs/">OS X Puppet pkgs</a></li>
+		</ul>
+		</aside><aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="http://explanatorygap.net/wp-content/plugins/really-static/static/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form></aside><aside id="tweetbox" class="widget tweetbox_widget"><h3 class="widget-title">Latest Tweets</h3><script type="text/javascript" src="http://explanatorygap.net/wp-content/plugins/tweetbox/tweetbox.js"></script><script>getTweets('nigelkersten', 3, '')</script><div id="tweetboxtweets">Fetching latest tweets...</div></aside><aside id="categories-1" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-5"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/nix/" title="View all posts filed under *nix">*nix</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/macosx/" title="View all posts filed under macosx">macosx</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/macosxserver/" title="View all posts filed under macosxserver">macosxserver</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/puppet/" title="View all posts filed under puppet">puppet</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/python/" title="View all posts filed under python">python</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/ramblings/" title="View all posts filed under ramblings">ramblings</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/snippets/" title="Snippets">Snippets</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/software-and-scripts/" title="View all posts filed under software and scripts">software and scripts</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+		</ul>
+</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>			<ul>
+						<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/wp-login.php">Log in</a></li>
+			<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://explanatorygap.net/wp-content/plugins/really-static/static/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+</aside><aside id="linkcat-10" class="widget widget_links"><h3 class="widget-title">Mac Dev Blogs</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://ridiculousfish.com/blog/">Ridiculous Fish</a></li>
+<li><a href="http://www.theocacao.com/" title="Scott Stevenson&#8217;s blog">theocacao.com</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-8" class="widget widget_links"><h3 class="widget-title">Mac Tech Blogs</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://bynkii.com/" title="John C. Welch&#8217;s blog&#8230; the reason God invented the middle finger&#8230;">bynkii.com</a></li>
+<li><a href="http://arstechnica.com/staff/fatbits.ars" title="John Siracusa&#8217;s Journal">fatbits</a></li>
+<li><a href="http://iamleeg.blogspot.com/" title="Graham Lee&#8217;s blog&#8230; lots of Darwin and Openstep.">i am leeg</a></li>
+<li><a href="http://managingosx.wordpress.com/" title="Greg Neagle&#8217;s Managing OS X blog">managing os x</a></li>
+<li><a href="http://northstarlabs.net" title="Jeff McCune&#8217;s sysadmin blog">northstarlabs.net</a></li>
+<li><a href="http://www.radiotope.com/writing/" title="Edward Marczak&#8217;s blog&#8230; the oneness of tech..">tech zendo</a></li>
+<li><a href="http://www.dreness.com/blog/" title="Andre&#8217;s Mac geek blog&#8230;">the bits</a></li>
+<li><a href="http://yourmacguy.wordpress.com/" title="Peter Bukowinski&#8217;s blog">Your Mac Guy</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-9" class="widget widget_links"><h3 class="widget-title">Mac Technical Sites</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.afp548.com" title="We put the M in RTFM&#8230;">AFP548.com</a></li>
+<li><a href="http://www.macenterprise.org" title="The MacEnterprise project is a community of IT professionals sharing information and solutions to support Macs in an enterprise.">MacEnterprise.org</a></li>
+<li><a href="http://xsanity.com/">xsanity</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-12" class="widget widget_links"><h3 class="widget-title">Social</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://yumamino.com/" title="Tane Potaka&#8217;s blog">Yumamino</a></li>
+
+	</ul>
+</aside>
+		</div><!-- .widget-area -->
+	</div><!-- #secondary -->
+
+			<div class="site-info">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/masonry.min.js?ver=3.1.2'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-includes/js/jquery/jquery.masonry.min.js?ver=3.1.2'></script>
+<script type='text/javascript' src='http://explanatorygap.net/wp-content/themes/twentythirteen/js/functions.js?ver=2013-07-18'></script>
+</body>
+</html>
+<!-- Dynamic Page Served (once) in 0.291 seconds -->
