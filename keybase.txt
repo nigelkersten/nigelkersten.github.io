@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/nigelkersten
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://explanatorygap.net
+  * I am nigelkersten (https://keybase.io/nigelkersten) on keybase.
+  * I have a public key with fingerprint 5D89 2D78 8865 2FE5 749D  F6C7 4454 66EA 6683 CA0C
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "5d892d7888652fe5749df6c7445466ea6683ca0c",
+            "host": "keybase.io",
+            "key_id": "445466ea6683ca0c",
+            "kid": "0101288a677fa9aa5c2b6465442aece5118662893ff1889f7382d14dacdcc197ef940a",
+            "uid": "5acf24379f96fb96258b8741ccb94919",
+            "username": "nigelkersten"
+        },
+        "service": {
+            "hostname": "explanatorygap.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1424977460,
+    "expire_in": 157680000,
+    "prev": "37f6b4dbb36b1df10277a280c8f39beecd3fffa7ea12ee44ebb04f43b2189e0c",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - http://gpgtools.org
+
+owFtkl1IFUEUx+81LbKCHtJ6sIw1QsJ0P2ZnZ64PGVkRmVKKphCXmd2Z66Lubveu
+loncyjKizISilOrBp+ihKCMqoogo+jaiD1AhSCq/sIIKispmpd6al2HO+Z/fmfPn
+HJ03I5QSLq7gY7zt4dzwo1EaqvjoFLZI1LWapUiLVMemL247MRb34rbjSxFJtxBW
+LQMhBHWVM90A2OLQNADQAYSMQIg0k8imlCfVuomgQmAoSbB82xUx8Yjaloj+R183
+nZAVWVERItAwOMGE6KZKIYA6ACphJtMVBUGoIqxxriCEuaEh1VKARUzLNBVsMI6B
+TASucRqnE5OrQDMwx5BTDFUdUWQAxTQpBljBgTDB4g5pYELt2DFWX8fiCZ85Umue
+JDJNtskCG4Jp/qrYTq+eOMR3480x4uU7zBcUL+76runWi3yt73uRoNxv9gL9Dkaj
+f0lRajuWMFQUNIk2tutIEUUoTd8O0ApQATYMAOW8oIsdZ1E7UOgGRLI4QRvWJJCa
+wSEFFqUapIrFFVk1DKIi2URcw5Qx0xL+cGIwoqiMAcAolQEHGlUVhNm03Qm23XGl
+iC6+SWICmZhjx8RQjXEmtaYfDGelhsIpoZlpKcFShNJnz/+3Ke0bZ01tHinPvrMO
+dVRv7dqSTF2LMsrWrzo84J87ULBkoDprRdXYxPDdS9GKpS3Joq7uax3s+rud+3OV
+htPZXz5/jU5d3DjeuOdm5+Nbi0mvvyW7fVtv1pk1De6iiW8/dz9dsPAVzXxWvL4s
+g9xY8/t931T44r3S7Mmc6AVtsKpnef03Z+h7zYfFfdfaKmvwp9F3A8vOR14/fnKk
+dLKnc+Fx+USy3HtzJbmsupQPs71nX+6ayjkV+3Wva+W+GwUbrhZ6x4aurk6k304t
+KTrpH1rSPXd1kkRaizf96OsfKvPGq8OVtc/LH+zIKZm8/zb3cq/Tla+1D47Y/QUL
+nlw6cL0ws+3Hi4GMtPd/AA==
+=7uh0
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nigelkersten
+
+==================================================================
+
